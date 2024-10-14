@@ -1,0 +1,45 @@
+.searchBar, .modelBar {
+    display: flex;
+    padding: 10px 180px;
+    /* background-color: aqua; */
+    align-items: center;
+}
+
+.searchBar>p, .modelBar>p {
+    margin-top: 20px;
+    margin-right: 20px;
+    font-size: 22px;
+    background-color: rgb(49, 173, 173);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    border: 2px solid gray;
+}
+
+nz-select {
+    width: 400px;
+}
+
+.auto-details {
+    /* background-color: antiquewhite; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px 40px;
+}
+
+.auto-details>.details {
+    font-size: 25px;
+    background-color: rgb(224, 224, 224, 0.5);
+    padding: 20px 40px;
+    border-radius: 10px;
+    width: 30%;
+}
+
+.auto-details>.details>.logo {
+    height: 80px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}

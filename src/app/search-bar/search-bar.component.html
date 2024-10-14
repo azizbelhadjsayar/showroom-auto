@@ -1,0 +1,54 @@
+<!-- <div class="container">
+    <label for="brand">BRAND</label>
+    <input #make placeholder="EXAMPLE: BMW" type="text" id="brand" (input)="searchAutoList(make.value)">
+    <button (click)="searchAutoList(make.value)">SEARCH</button>
+</div> -->
+
+<div class="searchBar">
+    <p>BRAND</p>
+    <nz-input-group nzSearch [nzSize]="'large'" [nzAddOnAfter]="suffixButton">
+        <input #make type="text" nz-input placeholder="EXAMPLE: BMW" (input)="searchAutoList(make.value)"/>
+    </nz-input-group>
+    <ng-template #suffixButton>
+        <button nz-button nzType="primary" nzSize="large" nzSearch (click)="searchAutoList(make.value)">Search</button>
+    </ng-template>
+</div>
+
+<!-- <nz-select [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="Choose">
+    <nz-option-group nzLabel="Manager">
+      <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+      <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+    </nz-option-group>
+    <nz-option-group nzLabel="Engineer">
+      <nz-option nzValue="tom" nzLabel="Tom"></nz-option>
+    </nz-option-group>
+</nz-select> -->
+
+<div class="modelBar">
+  <p>MODEL</p>
+  <nz-select [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="Choose a car model" nzShowSearch [nzSize]="'large'" (ngModelChange)="onModelSelect($event)">
+      <nz-option-group *ngFor="let brand of (selectedAutos | keyvalue)" [nzLabel]="brand.key">
+        <nz-option *ngFor="let model of brand.value" [nzValue]="model.model" [nzLabel]="model.model"></nz-option>
+      </nz-option-group>
+  </nz-select>
+</div>
+
+
+<div *ngIf="selectedAutoDetails" class="auto-details">
+  <div class="details">
+    <img [src]="selectedAutoDetails.logo" alt="" class="logo">
+    <p><strong>Model:</strong> {{ selectedAutoDetails.model }}</p>
+    <p><strong>Price:</strong> {{ selectedAutoDetails.price }} TND</p>
+    <p><strong>Power:</strong> {{ selectedAutoDetails.power }} HP</p>
+    <p><strong>Availability:</strong> {{ selectedAutoDetails.availability }} units</p>  
+  </div>
+  <div class="image">
+    <img [src]="selectedAutoDetails.photo" alt="{{ selectedAutoDetails.model }} image" />
+  </div>
+</div>
+
+<!-- <div *ngIf="selectedAutos">
+    <div *ngFor="let auto of selectedAutos" >
+        {{auto.availability}}
+    </div>
+</div> -->

@@ -1,0 +1,10 @@
+.container {
+    height: 120px;
+    background-color: rgb(159, 177, 247);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 20px 40px;
+    font-size: 20px;
+}
